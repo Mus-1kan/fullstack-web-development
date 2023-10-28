@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <style>
+    /* Add some basic styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.content {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Add some responsive design */
+@media screen and (max-width: 768px) {
+    nav ul {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    nav ul li {
+        display: block;
+    }
+}
+
+/* Add some styles for the contact form */
+form label, form input, form textarea {
+    display: block;
+    margin: 10px 0;
+}
+.slideshow-container {
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>My Simple Webpage</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to my simple webpage.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This is a basic example of a webpage created with HTML, CSS, and JavaScript.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form id="contact-form" onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+            <div class="slideshow-container">
+                <img id="image1" src="https://picsum.photos/id/237/1000/500" alt="Image 1">
+                <img id="image2" src="https://picsum.photos/id/238/1000/500" alt="Image 2" style="display: none;">
+            </div>
+            <button onclick="toggleImage()">Toggle Image</button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2023 Your Name</p>
+    </footer>
+    <script>
+        function validateForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    if (name === "" || email === "" || message === "") {
+        alert("All fields are required");
+        return false;
+    }
+
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!email.match(emailRegex)) {
+        alert("Invalid email address");
+        return false;
+    }
+
+    return true;
+}
+let image1Visible = true;
+
+function toggleImage() {
+    const image1 = document.getElementById("image1");
+    const image2 = document.getElementById("image2");
+
+    if (image1Visible) {
+        image1.style.display = "none";
+        image2.style.display = "inline";
+    } else {
+        image1.style.display = "inline";
+        image2.style.display = "none";
+    }
+
+    image1Visible = !image1Visible;
+}
+
+
+    </script>
+</body>
+</html>
